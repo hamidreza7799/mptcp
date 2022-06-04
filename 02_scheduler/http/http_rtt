@@ -1,0 +1,9 @@
+xpType:http
+clientPcap:yes
+serverPcap:yes
+snaplenPcap:100
+sched:default
+file:random
+file_size:10240
+rmem:300000 300000 300000
+wmem:300000 300000 300000

@@ -1,0 +1,111 @@
+Client_0 : ethtool -K Client_0-eth0 tso off; ethtool -K Client_0-eth0 gso off; ethtool -K Client_0-eth0 gro off
+Client_0 : ethtool -K Client_0-eth1 tso off; ethtool -K Client_0-eth1 gso off; ethtool -K Client_0-eth1 gro off
+Router_0 : ethtool -K Router_0-eth0 tso off; ethtool -K Router_0-eth0 gso off; ethtool -K Router_0-eth0 gro off
+Router_0 : ethtool -K Router_0-eth1 tso off; ethtool -K Router_0-eth1 gso off; ethtool -K Router_0-eth1 gro off
+Router_0 : ethtool -K Router_0-eth2 tso off; ethtool -K Router_0-eth2 gso off; ethtool -K Router_0-eth2 gro off
+Server_0 : ethtool -K Server_0-eth0 tso off; ethtool -K Server_0-eth0 gso off; ethtool -K Server_0-eth0 gro off
+bs_c2r_0_0 : ethtool -K bs_c2r_0_0-eth1 tso off; ethtool -K bs_c2r_0_0-eth1 gso off; ethtool -K bs_c2r_0_0-eth1 gro off
+bs_c2r_0_0 : ethtool -K bs_c2r_0_0-eth2 tso off; ethtool -K bs_c2r_0_0-eth2 gso off; ethtool -K bs_c2r_0_0-eth2 gro off
+bs_c2r_0_1 : ethtool -K bs_c2r_0_1-eth1 tso off; ethtool -K bs_c2r_0_1-eth1 gso off; ethtool -K bs_c2r_0_1-eth1 gro off
+bs_c2r_0_1 : ethtool -K bs_c2r_0_1-eth2 tso off; ethtool -K bs_c2r_0_1-eth2 gso off; ethtool -K bs_c2r_0_1-eth2 gro off
+bs_c2r_0_2 : ethtool -K bs_c2r_0_2-eth1 tso off; ethtool -K bs_c2r_0_2-eth1 gso off; ethtool -K bs_c2r_0_2-eth1 gro off
+bs_c2r_0_2 : ethtool -K bs_c2r_0_2-eth2 tso off; ethtool -K bs_c2r_0_2-eth2 gso off; ethtool -K bs_c2r_0_2-eth2 gro off
+bs_c2r_0_3 : ethtool -K bs_c2r_0_3-eth1 tso off; ethtool -K bs_c2r_0_3-eth1 gso off; ethtool -K bs_c2r_0_3-eth1 gro off
+bs_c2r_0_3 : ethtool -K bs_c2r_0_3-eth2 tso off; ethtool -K bs_c2r_0_3-eth2 gso off; ethtool -K bs_c2r_0_3-eth2 gro off
+bs_c2r_1_0 : ethtool -K bs_c2r_1_0-eth1 tso off; ethtool -K bs_c2r_1_0-eth1 gso off; ethtool -K bs_c2r_1_0-eth1 gro off
+bs_c2r_1_0 : ethtool -K bs_c2r_1_0-eth2 tso off; ethtool -K bs_c2r_1_0-eth2 gso off; ethtool -K bs_c2r_1_0-eth2 gro off
+bs_c2r_1_1 : ethtool -K bs_c2r_1_1-eth1 tso off; ethtool -K bs_c2r_1_1-eth1 gso off; ethtool -K bs_c2r_1_1-eth1 gro off
+bs_c2r_1_1 : ethtool -K bs_c2r_1_1-eth2 tso off; ethtool -K bs_c2r_1_1-eth2 gso off; ethtool -K bs_c2r_1_1-eth2 gro off
+bs_c2r_1_2 : ethtool -K bs_c2r_1_2-eth1 tso off; ethtool -K bs_c2r_1_2-eth1 gso off; ethtool -K bs_c2r_1_2-eth1 gro off
+bs_c2r_1_2 : ethtool -K bs_c2r_1_2-eth2 tso off; ethtool -K bs_c2r_1_2-eth2 gso off; ethtool -K bs_c2r_1_2-eth2 gro off
+bs_c2r_1_3 : ethtool -K bs_c2r_1_3-eth1 tso off; ethtool -K bs_c2r_1_3-eth1 gso off; ethtool -K bs_c2r_1_3-eth1 gro off
+bs_c2r_1_3 : ethtool -K bs_c2r_1_3-eth2 tso off; ethtool -K bs_c2r_1_3-eth2 gso off; ethtool -K bs_c2r_1_3-eth2 gro off
+bs_c2r_0_1 : tc qdisc del dev bs_c2r_0_1-eth1 root; tc qdisc del dev bs_c2r_0_1-eth1 ingress 
+bs_c2r_0_1 : tc qdisc del dev bs_c2r_0_1-eth2 root; tc qdisc del dev bs_c2r_0_1-eth2 ingress 
+bs_c2r_0_2 : tc qdisc del dev bs_c2r_0_2-eth1 root; tc qdisc del dev bs_c2r_0_2-eth1 ingress 
+bs_c2r_0_2 : tc qdisc del dev bs_c2r_0_2-eth2 root; tc qdisc del dev bs_c2r_0_2-eth2 ingress 
+bs_c2r_0_1 : tc qdisc add dev bs_c2r_0_1-eth2 root handle 10: netem  delay 15.0ms limit 50000
+bs_c2r_0_2 : tc qdisc add dev bs_c2r_0_2-eth2 root handle 1:0 tbf rate 20.0mbit burst 15000 limit 160000.0
+bs_c2r_0_2 : tc qdisc add dev bs_c2r_0_2-eth1 root handle 10: netem  delay 15.0ms limit 50000
+bs_c2r_0_1 : tc qdisc add dev bs_c2r_0_1-eth1 root handle 1:0 tbf rate 20.0mbit burst 15000 limit 160000.0
+bs_c2r_1_1 : tc qdisc del dev bs_c2r_1_1-eth1 root; tc qdisc del dev bs_c2r_1_1-eth1 ingress 
+bs_c2r_1_1 : tc qdisc del dev bs_c2r_1_1-eth2 root; tc qdisc del dev bs_c2r_1_1-eth2 ingress 
+bs_c2r_1_2 : tc qdisc del dev bs_c2r_1_2-eth1 root; tc qdisc del dev bs_c2r_1_2-eth1 ingress 
+bs_c2r_1_2 : tc qdisc del dev bs_c2r_1_2-eth2 root; tc qdisc del dev bs_c2r_1_2-eth2 ingress 
+bs_c2r_1_1 : tc qdisc add dev bs_c2r_1_1-eth2 root handle 10: netem  delay 50.0ms limit 50000
+bs_c2r_1_2 : tc qdisc add dev bs_c2r_1_2-eth2 root handle 1:0 tbf rate 20.0mbit burst 15000 limit 535500.0
+bs_c2r_1_2 : tc qdisc add dev bs_c2r_1_2-eth1 root handle 10: netem  delay 50.0ms limit 50000
+bs_c2r_1_1 : tc qdisc add dev bs_c2r_1_1-eth1 root handle 1:0 tbf rate 20.0mbit burst 15000 limit 535500.0
+Client_0 : ifconfig Client_0-eth0 10.0.0.1 netmask 255.255.255.0
+Router_0 : arp -s 10.0.0.1 06:8d:5c:56:51:c9
+Client_0 : ifconfig Client_0-eth1 10.0.1.1 netmask 255.255.255.0
+Router_0 : arp -s 10.0.1.1 76:37:fc:85:83:ec
+Router_0 : ifconfig Router_0-eth0 10.0.0.2 netmask 255.255.255.0
+Client_0 : arp -s 10.0.0.2 56:44:a9:13:4d:f5
+Router_0 : ifconfig Router_0-eth1 10.0.1.2 netmask 255.255.255.0
+Client_0 : arp -s 10.0.1.2 82:c5:2e:d7:2a:b8
+Router_0 : ifconfig Router_0-eth2 10.1.0.2 netmask 255.255.255.0
+Server_0 : arp -s 10.1.0.2 7e:44:89:4f:de:35
+Server_0 : ifconfig Server_0-eth0 10.1.0.1 netmask 255.255.255.0
+Router_0 : arp -s 10.1.0.1 f6:60:b1:70:1f:08
+Client_0 : ip rule add from 10.0.0.1 table 1
+Client_0 : ip route add 10.0.0.0/24 dev Client_0-eth0 scope link table 1
+Client_0 : ip route add default via 10.0.0.2 table 1
+Client_0 : ip rule add from 10.0.1.1 table 2
+Client_0 : ip route add 10.0.1.0/24 dev Client_0-eth1 scope link table 2
+Client_0 : ip route add default via 10.0.1.2 table 2
+Client_0 : ip route add default scope global nexthop via 10.0.0.2 dev Client_0-eth0
+Server_0 : ip route add default via 10.1.0.2
+Client_0 : rm ping.log
+Client_0 : ping -c 5 -I 10.0.0.1 10.1.0.1 >> ping.log
+Client_0 : ping -c 5 -I 10.0.1.1 10.1.0.1 >> ping.log
+Global : sysctl net.ipv4.tcp_congestion_control
+Global : sysctl net.ipv4.tcp_autocorking
+Global : sysctl net.mptcp.mptcp_scheduler
+Global : sysctl net.ipv4.tcp_rmem
+Global : sysctl net.mptcp.mptcp_enabled
+Global : sysctl net.ipv4.tcp_early_retrans
+Global : sysctl net.ipv4.tcp_moderate_rcvbuf
+Global : sysctl net.mptcp.mptcp_path_manager
+Global : sysctl net.ipv4.tcp_wmem
+Client_0 : sysctl net.mptcp.mptcp_path_manager
+Server_0 : sysctl net.mptcp.mptcp_path_manager
+Global : sysctl net.ipv4.tcp_early_retrans="3"
+Global : sysctl net.mptcp.mptcp_enabled="1"
+Global : sysctl net.ipv4.tcp_congestion_control="olia"
+Global : sysctl net.ipv4.tcp_autocorking="1"
+Global : sysctl net.ipv4.tcp_rmem="300000 300000 300000"
+Global : sysctl net.mptcp.mptcp_scheduler="default"
+Global : sysctl net.ipv4.tcp_moderate_rcvbuf="1"
+Global : sysctl net.mptcp.mptcp_path_manager="fullmesh"
+Global : sysctl net.ipv4.tcp_wmem="300000 300000 300000"
+Client_0 : sysctl net.mptcp.mptcp_path_manager="fullmesh"
+Server_0 : sysctl net.mptcp.mptcp_path_manager="fullmesh"
+Client_0 : tcpdump -i any -s 65535 -w client.pcap &
+Server_0 : tcpdump -i any -s 65535 -w server.pcap &
+Client_0 : sleep 5
+Client_0 : dd if=/dev/urandom of=random bs=1K count=10240
+Client_0 : rm http_client.log
+Server_0 : rm http_server.log
+Server_0 : netstat -sn > netstat_server_before
+Server_0 : python3 -m http.server 80 &> http_server.log&
+Client_0 : sleep 2
+Client_0 : netstat -sn > netstat_client_before
+Client_0 : (time wget http://10.1.0.1/random --no-check-certificate) &> http_client.log
+Server_0 : netstat -sn > netstat_server_after
+Client_0 : netstat -sn > netstat_client_after
+Client_0 : sleep 2
+Client_0 : killall tcpdump
+Server_0 : killall tcpdump
+Global : sysctl net.ipv4.tcp_early_retrans="3"
+Global : sysctl net.mptcp.mptcp_enabled="1"
+Global : sysctl net.ipv4.tcp_congestion_control="cubic"
+Global : sysctl net.ipv4.tcp_autocorking="1"
+Global : sysctl net.ipv4.tcp_rmem="10240	87380	16777216"
+Global : sysctl net.mptcp.mptcp_scheduler="default"
+Global : sysctl net.ipv4.tcp_moderate_rcvbuf="1"
+Global : sysctl net.mptcp.mptcp_path_manager="fullmesh"
+Global : sysctl net.ipv4.tcp_wmem="10240	87380	16777216"
+Client_0 : sysctl net.mptcp.mptcp_path_manager="stat /proc/sys/net/mptcp/mptcp_path_manager: No such file or directory"
+Server_0 : sysctl net.mptcp.mptcp_path_manager="stat /proc/sys/net/mptcp/mptcp_path_manager: No such file or directory"
+Client_0 : rm random*
