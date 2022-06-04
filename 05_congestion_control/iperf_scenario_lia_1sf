@@ -1,0 +1,9 @@
+xpType:iperfScenario
+congctrl:lia
+mptcpEnabled:1
+schd:default
+kpm:default
+clientPcap:yes
+serverPcap:yes
+snaplenPcap:100
+iperfScenarioFMSublows:1
