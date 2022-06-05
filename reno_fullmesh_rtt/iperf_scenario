@@ -1,0 +1,8 @@
+xpType:iperfScenario
+congctrl:reno
+mptcpEnabled:1
+schd:default
+kpm:fullmesh
+clientPcap:yes
+serverPcap:yes
+snaplenPcap:100
