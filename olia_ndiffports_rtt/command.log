@@ -45,35 +45,35 @@ bs_c2r_1_2 : tc qdisc add dev bs_c2r_1_2-eth2 root handle 1:0 tbf rate 20.0mbit 
 bs_c2r_1_2 : tc qdisc add dev bs_c2r_1_2-eth1 root handle 10: netem  delay 40.0ms limit 50000
 bs_c2r_1_1 : tc qdisc add dev bs_c2r_1_1-eth1 root handle 1:0 tbf rate 20.0mbit burst 15000 limit 428500.0
 Client_0 : ifconfig Client_0-eth0 10.0.0.1 netmask 255.255.255.0
-Router_0 : arp -s 10.0.0.1 ba:29:bb:c1:36:c1
+Router_0 : arp -s 10.0.0.1 96:3d:f1:07:38:e4
 Client_0 : ifconfig Client_0-eth1 10.0.1.1 netmask 255.255.255.0
-Router_0 : arp -s 10.0.1.1 42:5b:99:70:d6:c3
+Router_0 : arp -s 10.0.1.1 96:e9:14:b1:c7:64
 Router_0 : ifconfig Router_0-eth0 10.0.0.2 netmask 255.255.255.0
-Client_0 : arp -s 10.0.0.2 f2:91:08:0d:7e:58
+Client_0 : arp -s 10.0.0.2 06:ba:de:88:0f:c8
 Router_0 : ifconfig Router_0-eth1 10.0.1.2 netmask 255.255.255.0
-Client_0 : arp -s 10.0.1.2 e6:e9:93:d9:67:e4
+Client_0 : arp -s 10.0.1.2 86:f1:8f:1f:75:36
 Router_0 : ifconfig Router_0-eth2 10.1.0.2 netmask 255.255.255.0
-Server_0 : arp -s 10.1.0.2 fe:49:a5:17:1b:93
+Server_0 : arp -s 10.1.0.2 b6:31:a8:f4:5e:43
 Server_0 : ifconfig Server_0-eth0 10.1.0.1 netmask 255.255.255.0
-Router_0 : arp -s 10.1.0.1 7e:88:a5:2f:92:bc
+Router_0 : arp -s 10.1.0.1 9a:38:2c:11:66:ee
 Client_1 : ifconfig Client_1-eth0 10.0.0.10 netmask 255.255.255.0
-Router_0 : arp -s 10.0.0.10 62:4e:88:d4:d9:ff
-Client_1 : arp -s 10.0.0.2 f2:91:08:0d:7e:58
+Router_0 : arp -s 10.0.0.10 2e:c6:de:37:ef:e5
+Client_1 : arp -s 10.0.0.2 06:ba:de:88:0f:c8
 Client_2 : ifconfig Client_2-eth0 10.0.1.10 netmask 255.255.255.0
-Router_0 : arp -s 10.0.1.10 c6:6a:0e:74:ad:27
-Client_2 : arp -s 10.0.1.2 e6:e9:93:d9:67:e4
+Router_0 : arp -s 10.0.1.10 da:5d:14:9c:f5:5e
+Client_2 : arp -s 10.0.1.2 86:f1:8f:1f:75:36
 Router_0 : ifconfig Router_0-eth2 10.1.0.2 netmask 255.255.255.0
-Server_0 : arp -s 10.1.0.2 fe:49:a5:17:1b:93
+Server_0 : arp -s 10.1.0.2 b6:31:a8:f4:5e:43
 Server_0 : ifconfig Server_0-eth0 10.1.0.1 netmask 255.255.255.0
-Router_0 : arp -s 10.1.0.1 7e:88:a5:2f:92:bc
+Router_0 : arp -s 10.1.0.1 9a:38:2c:11:66:ee
 Router_0 : ifconfig Router_0-eth3 10.1.1.2 netmask 255.255.255.0
-Server_1 : arp -s 10.1.1.2 0a:7b:d1:36:c5:84
+Server_1 : arp -s 10.1.1.2 16:cf:39:98:89:90
 Server_1 : ifconfig Server_1-eth0 10.1.1.1 netmask 255.255.255.0
-Router_0 : arp -s 10.1.1.1 d2:36:47:84:8b:0d
+Router_0 : arp -s 10.1.1.1 aa:a3:23:86:1b:e2
 Router_0 : ifconfig Router_0-eth4 10.1.2.2 netmask 255.255.255.0
-Server_2 : arp -s 10.1.2.2 52:8b:73:c2:c7:c3
+Server_2 : arp -s 10.1.2.2 3e:0f:ae:57:bf:a5
 Server_2 : ifconfig Server_2-eth0 10.1.2.1 netmask 255.255.255.0
-Router_0 : arp -s 10.1.2.1 3a:b6:22:97:74:4a
+Router_0 : arp -s 10.1.2.1 7e:89:76:1a:bc:86
 Client_0 : ip rule add from 10.0.0.1 table 1
 Client_0 : ip route add 10.0.0.0/24 dev Client_0-eth0 scope link table 1
 Client_0 : ip route add default via 10.0.0.2 table 1
