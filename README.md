@@ -31,7 +31,17 @@
 
     curl https://www.multipath-tcp.org
 
-اگر جواب yes را دریافت کردیم به این معنی است که ارتباط به صورت mptcp برقرار شده است و مشکلی در کرنل لینوکس مجهز به mptcp وجود نداشته است.اما اگر به جواب no برخوردیم باید یا پروسه را از اول شروع کرده یا از روش های دیگر کرنل لینوکس مجهز به mptcp را نصب کنیم. این روش ها در سایت [multipath-tcp.org](https://multipath-tcp.org) آمده است.
+اگر جواب yes را دریافت کردیم به این معنی است که ارتباط به صورت mptcp برقرار شده است و مشکلی در کرنل لینوکس مجهز به mptcp وجود نداشته است.
+
+<p align="center">
+<img src="https://github.com/hamidreza7799/mptcp/blob/master/InstallationGuide3.jpg?raw=true">
+</p>
+
+اما اگر به جواب no برخوردیم باید یا پروسه را از اول شروع کرده یا از روش های دیگر کرنل لینوکس مجهز به mptcp را نصب کنیم. این روش ها در سایت [multipath-tcp.org](https://multipath-tcp.org) آمده است.
+
+<p align="center">
+<img src="https://github.com/hamidreza7799/mptcp/blob/master/InstallationGuide4.jpg?raw=true">
+</p>
 
 می توانیم دستورات زیر را درون سیستم عامل مجازی اجرا کرده و کرنل لینوکس مجهز به mptcp را نصب کنیم.
 
